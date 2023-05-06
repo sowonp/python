@@ -1,0 +1,56 @@
+true = True
+data = {'아이디' : '0', '비밀번호' : '0', '이름' : '0', '나이' : '0', '전화번호' : '0'}
+
+while true == True:
+    print("-----------")
+    print("0. 종료")
+    print("1. 회원가입")
+    print("2. 로그인")
+    print("-----------")
+    a = input("입력 : ")
+
+    if a == "0":
+        print("\n프로그램 종료")
+        break
+    
+    elif a == "1":
+        print("\n-----회원가입-----")
+        id = input("아이디 : ")
+        data['아이디'] = id
+        pw = input("비밀번호 : ")
+        data['비밀번호'] = pw
+        name = input("이름 : ")
+        data['이름'] = name
+        age = input("나이 : ")
+        data['나이'] = age
+        phone = input("전화번호 : ")
+        data['전화번호'] = phone
+        print("\n--- 회원가입 성공!")
+        continue
+    
+    elif a == "2":
+        print("\n-----로그인-----")
+        log_id = input("아이디 : ")
+        log_pw = input("비밀번호 : ")
+        
+        if log_id == data['아이디'] and log_pw == data['비밀번호']:
+            print("\n---", data['이름'], "님 환영합니다!")
+            print("-----------")
+            print("0. 로그아웃")
+            print("1. 개인정보 열람")
+            print("-----------")
+            a = input("입력 : ")
+            
+            if a == '0':
+                print("\n프로그램 종료")
+                break
+            elif a == '1':
+                print(data)
+                continue
+            
+        elif log_id == data['아이디'] and log_pw != data['비밀번호']:
+            print("비밀번호가 일치하지 않습니다")
+            continue
+        elif log_id != data['아이디']: 
+            print("존재하지 않는 아이디입니다.")
+            continue
